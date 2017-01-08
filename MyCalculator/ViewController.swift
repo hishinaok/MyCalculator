@@ -39,47 +39,48 @@ class ViewController: UIViewController {
    
     //四則演算のボタンが押された時の処理
     @IBAction func tappedCalc(_ sender: UIButton) {
-       
-        calc_mark.append((sender.titleLabel?.text)!)
-        result.text = calc_mark[i]
+        if input == ""{
+        }else{
+                 }
         
         //こめんと
-        print(calc_mark)
-        if input == ""{
-            if i != 0{
-                //足し算のメソッド呼び出し
-                if calc_mark[i-1] == "+"{
-                    result_num = add(input: input, calc_num: calc_num)
-            
-                }else if calc_mark[i-1] == "-"{
-                    result_num = subtraction(input: input, calc_num: calc_num)
-         
-                }else if calc_mark[i-1] == "×"{
-                    result_num = multiplication(input: input, calc_num: calc_num)
-            
-                }else if calc_mark[i-1] == "÷"{
-                    result_num = division(input: input, calc_num: calc_num)
+        if input != ""{
+            calc_mark.append((sender.titleLabel?.text)!)
+            result.text = calc_mark[i]
+
+            print(calc_mark)
+                if i != 0{
+                    //足し算のメソッド呼び出し
+                    if calc_mark[i-1] == "+"{
+                        result_num = add(input: input, calc_num: calc_num)
+                        
+                    }else if calc_mark[i-1] == "-"{
+                        result_num = subtraction(input: input, calc_num: calc_num)
+                        
+                    }else if calc_mark[i-1] == "×"{
+                        result_num = multiplication(input: input, calc_num: calc_num)
+                        
+                    }else if calc_mark[i-1] == "÷"{
+                        result_num = division(input: input, calc_num: calc_num)
         
-                }else if calc_mark[i-1] == "%"{
-                    result_num = division(input: input, calc_num: calc_num)
+                    }else if calc_mark[i-1] == "%"{
+                        result_num = division(input: input, calc_num: calc_num)
             
+                    }else{
+            
+                    }
                 }else{
-            
+                    calc_Flg = true
+                    result_num = Double(input)!
+                    print("途中結果は" + "\(result_num)")
                 }
-            }else{
-                calc_Flg = true
-                result_num = Double(input)!
-                print("途中結果は" + "\(result_num)")
-            }
-            calc_num = result_num
-            input = ""
-            i += 1
+                calc_num = result_num
+                input = ""
+                i += 1
         }else{
-            
+          
         }
-    
     }
-    
     
     //足し算の処理
     func add(input: String, calc_num: Double) -> Double{
@@ -112,10 +113,10 @@ class ViewController: UIViewController {
         return result_num
     }
  
-    /*
-    //割り算の処理
-    func division(input: String, calc_num: Int) -> Int{
-        result_num = calc_num / Int(input)!
+    
+    //あまりの処理
+  /*  func mod(input: String, calc_num: Double) -> Double{
+        result_num = calc_num % Double(input)!
         print("÷途中結果は" + "\(result_num)")
         return result_num
     }
