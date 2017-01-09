@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 //入力される数
 var input: String = ""
 //途中結果
@@ -26,14 +27,87 @@ var i: Int = 0
 class ViewController: UIViewController {
    
     
+    
+    @IBOutlet weak var btn1: UIButton!
+    @IBOutlet weak var btn2: UIButton!
+    @IBOutlet weak var btn3: UIButton!
+    @IBOutlet weak var btnAC: UIButton!
+    @IBOutlet weak var btn4: UIButton!
+    @IBOutlet weak var btn5: UIButton!
+    @IBOutlet weak var btn6: UIButton!
+    @IBOutlet weak var btn7: UIButton!
+    @IBOutlet weak var btn8: UIButton!
+    @IBOutlet weak var btn9: UIButton!
+    @IBOutlet weak var btn0: UIButton!
+    @IBOutlet weak var btnDiv: UIButton!
+    @IBOutlet weak var btnMul: UIButton!
+    @IBOutlet weak var btnSub: UIButton!
+    @IBOutlet weak var btnAdd: UIButton!
+    @IBOutlet weak var btnDot: UIButton!
+    @IBOutlet weak var btnEql: UIButton!
+    
+    
     @IBOutlet weak var result: UILabel!
 
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
+      
+        
+                super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-   
-    
+        //result.layer.borderColor  = UIColor.white.cgColor;       // 枠の色
+        //result.layer.borderWidth  = 1;
+        btnAC.layer.borderColor  = UIColor.white.cgColor;       // 枠の色
+        btnAC.layer.borderWidth  = 3;
+        
+        btnDiv.layer.borderColor  = UIColor.white.cgColor;       // 枠の色
+        btnDiv.layer.borderWidth  = 3;
+
+        btn1.layer.borderColor  = UIColor.white.cgColor;       // 枠の色
+        btn1.layer.borderWidth  = 3;
+        
+        btn2.layer.borderColor  = UIColor.white.cgColor;       // 枠の色
+        btn2.layer.borderWidth  = 3;
+        
+        btn3.layer.borderColor  = UIColor.white.cgColor;       // 枠の色
+        btn3.layer.borderWidth  = 3;
+        
+        btnMul.layer.borderColor  = UIColor.white.cgColor;       // 枠の色
+        btnMul.layer.borderWidth  = 3;
+        
+        btn4.layer.borderColor  = UIColor.white.cgColor;       // 枠の色
+        btn4.layer.borderWidth  = 3;
+        
+        btn5.layer.borderColor  = UIColor.white.cgColor;       // 枠の色
+        btn5.layer.borderWidth  = 3;
+        
+        btn6.layer.borderColor  = UIColor.white.cgColor;       // 枠の色
+        btn6.layer.borderWidth  = 3;
+        
+        btnSub.layer.borderColor  = UIColor.white.cgColor;       // 枠の色
+        btnSub.layer.borderWidth  = 3;
+        
+        btn7.layer.borderColor  = UIColor.white.cgColor;       // 枠の色
+        btn7.layer.borderWidth  = 3;
+        
+        btn8.layer.borderColor  = UIColor.white.cgColor;       // 枠の色
+        btn8.layer.borderWidth  = 3;
+        
+        btn9.layer.borderColor  = UIColor.white.cgColor;       // 枠の色
+        btn9.layer.borderWidth  = 3;
+        
+        btnAdd.layer.borderColor  = UIColor.white.cgColor;       // 枠の色
+        btnAdd.layer.borderWidth  = 3;
+        
+        btn0.layer.borderColor  = UIColor.white.cgColor;       // 枠の色
+        btn0.layer.borderWidth  = 3;
+        
+        btnDot.layer.borderColor  = UIColor.white.cgColor;       // 枠の色
+        btnDot.layer.borderWidth  = 3;
+        
+        btnEql.layer.borderColor  = UIColor.white.cgColor;       // 枠の色
+        btnEql.layer.borderWidth  = 3;
     }
     
    
@@ -124,6 +198,7 @@ class ViewController: UIViewController {
     
     
     @IBAction func tappedEql(_ sender: UIButton) {
+        
         //イコールボタン押された時の処理
         if calc_mark[i-1] == "+"{
             result_num = add(input: input, calc_num: calc_num)
