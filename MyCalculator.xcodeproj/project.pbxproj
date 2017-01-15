@@ -193,6 +193,7 @@
 				TargetAttributes = {
 					D0056C311E102C47002264AB = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = ZT729D84CQ;
 						ProvisioningStyle = Automatic;
 					};
 					D0056C451E102C48002264AB = {
@@ -410,9 +411,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = ZT729D84CQ;
 				INFOPLIST_FILE = MyCalculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = jp.co.hishi.MyCalculator;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.hishi.MyCalculator1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -422,9 +425,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = ZT729D84CQ;
 				INFOPLIST_FILE = MyCalculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = jp.co.hishi.MyCalculator;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.hishi.MyCalculator1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

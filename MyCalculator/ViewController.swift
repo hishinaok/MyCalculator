@@ -1,3 +1,4 @@
+
 //
 //  ViewController.swift
 //  MyCalculator
@@ -21,13 +22,14 @@ var result_num: Double = 0
 var calc_Flg: Bool = false
 //演算子配列用の変数
 var i: Int = 0
-
+//変換用の変数
+//var conversion:Double = 0
+//変換後の結果用変数
+var conv_result:Double = 0
 
 
 class ViewController: UIViewController {
    
-    
-    
     @IBOutlet weak var btn1: UIButton!
     @IBOutlet weak var btn2: UIButton!
     @IBOutlet weak var btn3: UIButton!
@@ -45,6 +47,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var btnAdd: UIButton!
     @IBOutlet weak var btnDot: UIButton!
     @IBOutlet weak var btnEql: UIButton!
+    @IBOutlet weak var btnA: UIButton!
+    @IBOutlet weak var btnB: UIButton!
+    @IBOutlet weak var btnC: UIButton!
+    @IBOutlet weak var btnD: UIButton!
+    
     
     
     @IBOutlet weak var result: UILabel!
@@ -53,71 +60,57 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
       
         
-                super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        //result.layer.borderColor  = UIColor.white.cgColor;       // 枠の色
-        //result.layer.borderWidth  = 1;
-        btnAC.layer.borderColor  = UIColor.white.cgColor;       // 枠の色
-        btnAC.layer.borderWidth  = 3;
-        
-        btnDiv.layer.borderColor  = UIColor.white.cgColor;       // 枠の色
-        btnDiv.layer.borderWidth  = 3;
+        super.viewDidLoad()
 
-        btn1.layer.borderColor  = UIColor.white.cgColor;       // 枠の色
-        btn1.layer.borderWidth  = 3;
-        
-        btn2.layer.borderColor  = UIColor.white.cgColor;       // 枠の色
-        btn2.layer.borderWidth  = 3;
-        
-        btn3.layer.borderColor  = UIColor.white.cgColor;       // 枠の色
-        btn3.layer.borderWidth  = 3;
-        
-        btnMul.layer.borderColor  = UIColor.white.cgColor;       // 枠の色
-        btnMul.layer.borderWidth  = 3;
-        
-        btn4.layer.borderColor  = UIColor.white.cgColor;       // 枠の色
-        btn4.layer.borderWidth  = 3;
-        
-        btn5.layer.borderColor  = UIColor.white.cgColor;       // 枠の色
-        btn5.layer.borderWidth  = 3;
-        
-        btn6.layer.borderColor  = UIColor.white.cgColor;       // 枠の色
-        btn6.layer.borderWidth  = 3;
-        
-        btnSub.layer.borderColor  = UIColor.white.cgColor;       // 枠の色
-        btnSub.layer.borderWidth  = 3;
-        
-        btn7.layer.borderColor  = UIColor.white.cgColor;       // 枠の色
-        btn7.layer.borderWidth  = 3;
-        
-        btn8.layer.borderColor  = UIColor.white.cgColor;       // 枠の色
-        btn8.layer.borderWidth  = 3;
-        
-        btn9.layer.borderColor  = UIColor.white.cgColor;       // 枠の色
-        btn9.layer.borderWidth  = 3;
-        
-        btnAdd.layer.borderColor  = UIColor.white.cgColor;       // 枠の色
-        btnAdd.layer.borderWidth  = 3;
-        
-        btn0.layer.borderColor  = UIColor.white.cgColor;       // 枠の色
-        btn0.layer.borderWidth  = 3;
-        
-        btnDot.layer.borderColor  = UIColor.white.cgColor;       // 枠の色
-        btnDot.layer.borderWidth  = 3;
-        
-        btnEql.layer.borderColor  = UIColor.white.cgColor;       // 枠の色
-        btnEql.layer.borderWidth  = 3;
+        btnAC.layer.borderColor  = UIColor.white.cgColor;  // 枠の色
+        btnAC.layer.borderWidth  = 5;                      //枠の太さ
+        btnDiv.layer.borderColor  = UIColor.white.cgColor;
+        btnDiv.layer.borderWidth  = 5;
+        btn1.layer.borderColor  = UIColor.white.cgColor;
+        btn1.layer.borderWidth  = 5;
+        btn2.layer.borderColor  = UIColor.white.cgColor;
+        btn2.layer.borderWidth  = 5;
+        btn3.layer.borderColor  = UIColor.white.cgColor;
+        btn3.layer.borderWidth  = 5;
+        btnMul.layer.borderColor  = UIColor.white.cgColor;
+        btnMul.layer.borderWidth  = 5;
+        btn4.layer.borderColor  = UIColor.white.cgColor;
+        btn4.layer.borderWidth  = 5;
+        btn5.layer.borderColor  = UIColor.white.cgColor;
+        btn5.layer.borderWidth  = 5;
+        btn6.layer.borderColor  = UIColor.white.cgColor;
+        btn6.layer.borderWidth  = 5;
+        btnSub.layer.borderColor  = UIColor.white.cgColor;
+        btnSub.layer.borderWidth  = 5;
+        btn7.layer.borderColor  = UIColor.white.cgColor;
+        btn7.layer.borderWidth  = 5;
+        btn8.layer.borderColor  = UIColor.white.cgColor;
+        btn8.layer.borderWidth  = 5;
+        btn9.layer.borderColor  = UIColor.white.cgColor;
+        btn9.layer.borderWidth  = 5;
+        btnAdd.layer.borderColor  = UIColor.white.cgColor;
+        btnAdd.layer.borderWidth  = 5;
+        btn0.layer.borderColor  = UIColor.white.cgColor;
+        btn0.layer.borderWidth  = 5;
+        btnDot.layer.borderColor  = UIColor.white.cgColor;
+        btnDot.layer.borderWidth  = 5;
+        btnEql.layer.borderColor  = UIColor.white.cgColor;    
+        btnEql.layer.borderWidth  = 5;
+        btnA.layer.borderColor  = UIColor.white.cgColor;
+        btnA.layer.borderWidth  = 5;
+        btnB.layer.borderColor  = UIColor.white.cgColor;
+        btnB.layer.borderWidth  = 5;
+        btnC.layer.borderColor  = UIColor.white.cgColor;
+        btnC.layer.borderWidth  = 5;
+        btnD.layer.borderColor  = UIColor.white.cgColor;
+        btnD.layer.borderWidth  = 5;
     }
     
    
     //四則演算のボタンが押された時の処理
     @IBAction func tappedCalc(_ sender: UIButton) {
-        if input == ""{
-        }else{
-                 }
+        //一番最初に四則演算押された場合、何もしない。
         
-        //こめんと
         if input != ""{
             calc_mark.append((sender.titleLabel?.text)!)
             result.text = calc_mark[i]
@@ -144,7 +137,7 @@ class ViewController: UIViewController {
             
                     }
                 }else{
-                    calc_Flg = true
+                    //calc_Flg = true
                     result_num = Double(input)!
                     print("途中結果は" + "\(result_num)")
                 }
@@ -188,18 +181,13 @@ class ViewController: UIViewController {
     }
  
     
-    //あまりの処理
-  /*  func mod(input: String, calc_num: Double) -> Double{
-        result_num = calc_num % Double(input)!
-        print("÷途中結果は" + "\(result_num)")
-        return result_num
-    }
-*/
+
     
     
     @IBAction func tappedEql(_ sender: UIButton) {
-        
-        //イコールボタン押された時の処理
+        if input != ""{
+       
+            //イコールボタン押された時の処理
         if calc_mark[i-1] == "+"{
             result_num = add(input: input, calc_num: calc_num)
             result.text = "\(result_num)"
@@ -213,10 +201,45 @@ class ViewController: UIViewController {
             result_num = division(input: input, calc_num: calc_num)
             result.text = "\(result_num)"
         }else{
-            
+            //一番最初にイコール押された場合は何もしない処理を追加
         }
         print("これはイコールの後の数字" + "\(result_num)")
+        input = ""
+        calc_num = 0.0
+        calc_mark = []
+        result_num = 0.0
+        calc_Flg = false
+        i = 0
+        }else{
+            
+        }
         
+    }
+    
+    //単位変換ボタンを押された時の処理
+   @IBAction func tappedConv(_ sender: UIButton) {
+        switch sender.tag{
+        case 0:
+            conv_result = Double(result.text!)! * 1
+            result.text = "\(conv_result)"
+            input = result.text!
+        case 1:
+            conv_result = Double(result.text!)! * 1
+            result.text = "\(conv_result)"
+            input = result.text!
+        case 2:
+            conv_result = Double(result.text!)! * 1
+            result.text = "\(conv_result)"
+            input = result.text!
+        case 3:
+            conv_result = Double(result.text!)! * 1
+            result.text = "\(conv_result)"
+            input = result.text!
+        default:
+            print("エラー")
+            
+        }
+
     }
     
     
@@ -236,8 +259,6 @@ class ViewController: UIViewController {
     @IBAction func tappedBtn(_ sender: UIButton) {
         //input += sender.title(for: UIControlState.normal)!
         //数字のボタンが押された時の処理
-        //残課題：もっと簡潔に。一旦はこれで。
-        //       .は一回のみのうけつけとする！
         switch sender.tag{
         case 0:
             input += "\(sender.tag)"
