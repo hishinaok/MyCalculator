@@ -109,9 +109,7 @@ class ViewController: UIViewController {
    
     //四則演算のボタンが押された時の処理
     @IBAction func tappedCalc(_ sender: UIButton) {
-        //一番最初に四則演算押された場合、何もしない。
-        
-        if input != ""{
+            if input != ""{
             calc_mark.append((sender.titleLabel?.text)!)
             result.text = calc_mark[i]
 
@@ -130,16 +128,13 @@ class ViewController: UIViewController {
                     }else if calc_mark[i-1] == "÷"{
                         result_num = division(input: input, calc_num: calc_num)
         
-                    }else if calc_mark[i-1] == "%"{
-                        result_num = division(input: input, calc_num: calc_num)
-            
                     }else{
-            
+                        //ここ、なくてもいいかも。。。
                     }
                 }else{
                     //calc_Flg = true
                     result_num = Double(input)!
-                    print("途中結果は" + "\(result_num)")
+                    //print("途中結果は" + "\(result_num)")
                 }
                 calc_num = result_num
                 input = ""
@@ -152,7 +147,7 @@ class ViewController: UIViewController {
     //足し算の処理
     func add(input: String, calc_num: Double) -> Double{
         result_num = calc_num + Double(input)!
-        print("＋途中結果は" + "\(result_num)")
+        //print("＋途中結果は" + "\(result_num)")
         return result_num
     }
     
@@ -160,7 +155,6 @@ class ViewController: UIViewController {
     //引き算の処理
     func subtraction(input: String, calc_num: Double) -> Double{
         result_num = calc_num - Double(input)!
-        print("マイナス途中結果は" + "\(result_num)")
         return result_num
     }
     
@@ -168,7 +162,6 @@ class ViewController: UIViewController {
     //掛け算の処理
     func multiplication(input: String, calc_num: Double) -> Double{
         result_num = calc_num * Double(input)!
-        print("×途中結果は" + "\(result_num)")
         return result_num
     }
     
@@ -176,7 +169,6 @@ class ViewController: UIViewController {
     //割り算の処理
     func division(input: String, calc_num: Double) -> Double{
         result_num = calc_num / Double(input)!
-        print("÷途中結果は" + "\(result_num)")
         return result_num
     }
  
@@ -187,7 +179,7 @@ class ViewController: UIViewController {
     @IBAction func tappedEql(_ sender: UIButton) {
         if input != ""{
        
-            //イコールボタン押された時の処理
+        //イコールボタン押された時の処理
         if calc_mark[i-1] == "+"{
             result_num = add(input: input, calc_num: calc_num)
             result.text = "\(result_num)"
@@ -201,7 +193,7 @@ class ViewController: UIViewController {
             result_num = division(input: input, calc_num: calc_num)
             result.text = "\(result_num)"
         }else{
-            //一番最初にイコール押された場合は何もしない処理を追加
+            //一番最初にイコール押された場合は何もしない
         }
         print("これはイコールの後の数字" + "\(result_num)")
         input = ""
@@ -220,19 +212,19 @@ class ViewController: UIViewController {
    @IBAction func tappedConv(_ sender: UIButton) {
         switch sender.tag{
         case 0:
-            conv_result = Double(result.text!)! * 1
+            conv_result = Double(result.text!)! * 0.072
             result.text = "\(conv_result)"
             input = result.text!
         case 1:
-            conv_result = Double(result.text!)! * 1
+            conv_result = Double(result.text!)! * 2.1
             result.text = "\(conv_result)"
             input = result.text!
         case 2:
-            conv_result = Double(result.text!)! * 1
+            conv_result = Double(result.text!)! * 0.071
             result.text = "\(conv_result)"
             input = result.text!
         case 3:
-            conv_result = Double(result.text!)! * 1
+            conv_result = Double(result.text!)! * 0.068
             result.text = "\(conv_result)"
             input = result.text!
         default:
@@ -242,70 +234,57 @@ class ViewController: UIViewController {
 
     }
     
-    
-
+    //ACボタン押下時の処理
     @IBAction func tappedAc(_ sender: Any) {
         input = ""
         calc_num = 0.0
         calc_mark = []
         result_num = 0.0
         calc_Flg = false
-        print("全部けした！")
         result.text = "0"
         i = 0
     }
     
     
+    //数字のボタンが押された時の処理
     @IBAction func tappedBtn(_ sender: UIButton) {
-        //input += sender.title(for: UIControlState.normal)!
-        //数字のボタンが押された時の処理
         switch sender.tag{
         case 0:
             input += "\(sender.tag)"
             result.text = input
-            print(input)
+            //print(input)
         case 1:
             input += "\(sender.tag)"
             result.text = input
-            print(input)
         case 2:
             input += "\(sender.tag)"
             result.text = input
-            print(input)
         case 3:
             input += "\(sender.tag)"
             result.text = input
-            print(input)
         case 4:
             input += "\(sender.tag)"
             result.text = input
-            print(input)
         case 5:
             input += "\(sender.tag)"
             result.text = input
-            print(input)
         case 6:
             input += "\(sender.tag)"
             result.text = input
-            print(input)
         case 7:
             input += "\(sender.tag)"
             result.text = input
-            print(input)
         case 8:
             input += "\(sender.tag)"
             result.text = input
-            print(input)
         case 9:
             input += "\(sender.tag)"
             result.text = input
-            print(input)
         case 10:
             if input.contains("."){
             }else{
             input += "."
             result.text = input
-            print(input)
             }
                 
         default:
@@ -315,7 +294,6 @@ class ViewController: UIViewController {
  
     }
     
-
     
 
     override func didReceiveMemoryWarning() {
