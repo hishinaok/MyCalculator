@@ -212,7 +212,7 @@ class ViewController: UIViewController {
    @IBAction func tappedConv(_ sender: UIButton) {
         switch sender.tag{
         case 0:
-            conv_result = Double(result.text!)! * 0.072
+            conv_result = Double(result.text!)! * 1
             result.text = "\(conv_result)"
             input = result.text!
         case 1:
@@ -220,7 +220,7 @@ class ViewController: UIViewController {
             result.text = "\(conv_result)"
             input = result.text!
         case 2:
-            conv_result = Double(result.text!)! * 0.071
+            conv_result = Double(result.text!)! * 1
             result.text = "\(conv_result)"
             input = result.text!
         case 3:
